@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92446FF616B0DBE000647ECA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92446FF516B0DBE000647ECA /* CoreMotion.framework */; };
+		9279C65C16BF12A50009DDFE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9279C65B16BF12A50009DDFE /* CoreLocation.framework */; };
+		92A2137E16AE559F00FF84FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A2137D16AE559F00FF84FD /* UIKit.framework */; };
+		92A2138016AE559F00FF84FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A2137F16AE559F00FF84FD /* Foundation.framework */; };
+		92A2138216AE559F00FF84FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A2138116AE559F00FF84FD /* CoreGraphics.framework */; };
+		92A2138816AE559F00FF84FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92A2138616AE559F00FF84FD /* InfoPlist.strings */; };
+		92A2138A16AE559F00FF84FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A2138916AE559F00FF84FD /* main.m */; };
+		92A2138E16AE559F00FF84FD /* RBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A2138D16AE559F00FF84FD /* RBAppDelegate.m */; };
+		92A2139016AE559F00FF84FD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A2138F16AE559F00FF84FD /* Default.png */; };
+		92A2139216AE559F00FF84FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139116AE559F00FF84FD /* Default@2x.png */; };
+		92A2139416AE55A000FF84FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139316AE559F00FF84FD /* Default-568h@2x.png */; };
+		92A2139716AE55A000FF84FD /* RBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A2139616AE55A000FF84FD /* RBViewController.m */; };
+		92A2139A16AE55A000FF84FD /* RBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139816AE55A000FF84FD /* RBViewController.xib */; };
+		92A213A216AE574800FF84FD /* RBMotionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A213A116AE574800FF84FD /* RBMotionRecord.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		92446FF516B0DBE000647ECA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		9279C65B16BF12A50009DDFE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		92A2137916AE559F00FF84FD /* Road Bumps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Road Bumps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A2137D16AE559F00FF84FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		92A2137F16AE559F00FF84FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		92A2138116AE559F00FF84FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		92A2138516AE559F00FF84FD /* Road Bumps-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Road Bumps-Info.plist"; sourceTree = "<group>"; };
+		92A2138716AE559F00FF84FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		92A2138916AE559F00FF84FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		92A2138B16AE559F00FF84FD /* Road Bumps-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Road Bumps-Prefix.pch"; sourceTree = "<group>"; };
+		92A2138C16AE559F00FF84FD /* RBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBAppDelegate.h; sourceTree = "<group>"; };
+		92A2138D16AE559F00FF84FD /* RBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBAppDelegate.m; sourceTree = "<group>"; };
+		92A2138F16AE559F00FF84FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		92A2139116AE559F00FF84FD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		92A2139316AE559F00FF84FD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		92A2139516AE55A000FF84FD /* RBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBViewController.h; sourceTree = "<group>"; };
+		92A2139616AE55A000FF84FD /* RBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBViewController.m; sourceTree = "<group>"; };
+		92A2139916AE55A000FF84FD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RBViewController.xib; sourceTree = "<group>"; };
+		92A213A016AE574800FF84FD /* RBMotionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBMotionRecord.h; sourceTree = "<group>"; };
+		92A213A116AE574800FF84FD /* RBMotionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBMotionRecord.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92A2137616AE559F00FF84FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9279C65C16BF12A50009DDFE /* CoreLocation.framework in Frameworks */,
+				92446FF616B0DBE000647ECA /* CoreMotion.framework in Frameworks */,
+				92A2137E16AE559F00FF84FD /* UIKit.framework in Frameworks */,
+				92A2138016AE559F00FF84FD /* Foundation.framework in Frameworks */,
+				92A2138216AE559F00FF84FD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92A2136E16AE559F00FF84FD = {
+			isa = PBXGroup;
+			children = (
+				9279C65B16BF12A50009DDFE /* CoreLocation.framework */,
+				92446FF516B0DBE000647ECA /* CoreMotion.framework */,
+				92A2138316AE559F00FF84FD /* Road Bumps */,
+				92A2137C16AE559F00FF84FD /* Frameworks */,
+				92A2137A16AE559F00FF84FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92A2137A16AE559F00FF84FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92A2137916AE559F00FF84FD /* Road Bumps.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92A2137C16AE559F00FF84FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92A2137D16AE559F00FF84FD /* UIKit.framework */,
+				92A2137F16AE559F00FF84FD /* Foundation.framework */,
+				92A2138116AE559F00FF84FD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92A2138316AE559F00FF84FD /* Road Bumps */ = {
+			isa = PBXGroup;
+			children = (
+				92A2138C16AE559F00FF84FD /* RBAppDelegate.h */,
+				92A2138D16AE559F00FF84FD /* RBAppDelegate.m */,
+				92A2139516AE55A000FF84FD /* RBViewController.h */,
+				92A2139616AE55A000FF84FD /* RBViewController.m */,
+				92A213A016AE574800FF84FD /* RBMotionRecord.h */,
+				92A213A116AE574800FF84FD /* RBMotionRecord.m */,
+				92A2139816AE55A000FF84FD /* RBViewController.xib */,
+				92A2138416AE559F00FF84FD /* Supporting Files */,
+			);
+			path = "Road Bumps";
+			sourceTree = "<group>";
+		};
+		92A2138416AE559F00FF84FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				92A2138516AE559F00FF84FD /* Road Bumps-Info.plist */,
+				92A2138616AE559F00FF84FD /* InfoPlist.strings */,
+				92A2138916AE559F00FF84FD /* main.m */,
+				92A2138B16AE559F00FF84FD /* Road Bumps-Prefix.pch */,
+				92A2138F16AE559F00FF84FD /* Default.png */,
+				92A2139116AE559F00FF84FD /* Default@2x.png */,
+				92A2139316AE559F00FF84FD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92A2137816AE559F00FF84FD /* Road Bumps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A2139D16AE55A000FF84FD /* Build configuration list for PBXNativeTarget "Road Bumps" */;
+			buildPhases = (
+				92A2137516AE559F00FF84FD /* Sources */,
+				92A2137616AE559F00FF84FD /* Frameworks */,
+				92A2137716AE559F00FF84FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Road Bumps";
+			productName = "Road Bumps";
+			productReference = 92A2137916AE559F00FF84FD /* Road Bumps.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92A2137016AE559F00FF84FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RB;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = SE;
+			};
+			buildConfigurationList = 92A2137316AE559F00FF84FD /* Build configuration list for PBXProject "Road Bumps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 92A2136E16AE559F00FF84FD;
+			productRefGroup = 92A2137A16AE559F00FF84FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92A2137816AE559F00FF84FD /* Road Bumps */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92A2137716AE559F00FF84FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A2138816AE559F00FF84FD /* InfoPlist.strings in Resources */,
+				92A2139016AE559F00FF84FD /* Default.png in Resources */,
+				92A2139216AE559F00FF84FD /* Default@2x.png in Resources */,
+				92A2139416AE55A000FF84FD /* Default-568h@2x.png in Resources */,
+				92A2139A16AE55A000FF84FD /* RBViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92A2137516AE559F00FF84FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A2138A16AE559F00FF84FD /* main.m in Sources */,
+				92A2138E16AE559F00FF84FD /* RBAppDelegate.m in Sources */,
+				92A2139716AE55A000FF84FD /* RBViewController.m in Sources */,
+				92A213A216AE574800FF84FD /* RBMotionRecord.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		92A2138616AE559F00FF84FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92A2138716AE559F00FF84FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		92A2139816AE55A000FF84FD /* RBViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92A2139916AE55A000FF84FD /* en */,
+			);
+			name = RBViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92A2139B16AE55A000FF84FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		92A2139C16AE55A000FF84FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92A2139E16AE55A000FF84FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Road Bumps/Road Bumps-Prefix.pch";
+				INFOPLIST_FILE = "Road Bumps/Road Bumps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		92A2139F16AE55A000FF84FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Road Bumps/Road Bumps-Prefix.pch";
+				INFOPLIST_FILE = "Road Bumps/Road Bumps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92A2137316AE559F00FF84FD /* Build configuration list for PBXProject "Road Bumps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A2139B16AE55A000FF84FD /* Debug */,
+				92A2139C16AE55A000FF84FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92A2139D16AE55A000FF84FD /* Build configuration list for PBXNativeTarget "Road Bumps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A2139E16AE55A000FF84FD /* Debug */,
+				92A2139F16AE55A000FF84FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92A2137016AE559F00FF84FD /* Project object */;
+}
