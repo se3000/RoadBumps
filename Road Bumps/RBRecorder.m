@@ -2,9 +2,10 @@
 
 @interface RBRecorder()
 
+@property (nonatomic, strong) NSString *collectedData;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSDate *startTime, *endTime;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -80,7 +81,19 @@
     [formatter setDateFormat:@"yyyy-MM-dd hh:mm"];
     
     return [[NSString alloc ]initWithFormat:@"Collected between %@ and %@.",
-            [formatter stringFromDate:startTime],
-            [formatter stringFromDate:endTime]];
+                                            [formatter stringFromDate:startTime],
+                                            [formatter stringFromDate:endTime]];
+}
+
+- (NSString *)filename {
+    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMdd_hh_mm"];
+    
+    return [[NSString alloc ]initWithFormat:@"RoadBumps_%@.csv",
+            [formatter stringFromDate:startTime]];
+}
+
+- (NSData *)resultData {
+    return [collectedData dataUsingEncoding:NSUTF8StringEncoding] ;
 }
 @end

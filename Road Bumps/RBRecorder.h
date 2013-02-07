@@ -7,9 +7,11 @@
 - (void)start;
 - (void)stop;
 - (NSString *)description;
+- (NSString *)filename;
+- (NSData *)resultData;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSString *collectedData, *status;
+@property (nonatomic, strong) NSString *status;
 
 @end

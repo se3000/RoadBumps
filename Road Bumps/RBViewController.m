@@ -36,8 +36,11 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer setSubject:[recorder description]];
-        [mailer setMessageBody:recorder.collectedData isHTML:NO];
+        [mailer setSubject:@"Road Bumps Data"];
+        [mailer setMessageBody:[recorder description] isHTML:NO];
+        [mailer addAttachmentData:[recorder resultData] 
+                         mimeType:@"text/csv"
+                         fileName:[recorder filename]];
         [self presentViewController:mailer animated:YES completion:nil];
     }
 }
