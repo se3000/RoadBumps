@@ -21,6 +21,7 @@
 		92A2139716AE55A000FF84FD /* RBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A2139616AE55A000FF84FD /* RBViewController.m */; };
 		92A2139A16AE55A000FF84FD /* RBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139816AE55A000FF84FD /* RBViewController.xib */; };
 		92B8EE7316C2C41D00131924 /* RBRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B8EE7216C2C41D00131924 /* RBRecorder.m */; };
+		92E7DA2516C346C400350F18 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E7DA2416C346C400350F18 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		92A2139916AE55A000FF84FD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RBViewController.xib; sourceTree = "<group>"; };
 		92B8EE7116C2C41D00131924 /* RBRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBRecorder.h; sourceTree = "<group>"; };
 		92B8EE7216C2C41D00131924 /* RBRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBRecorder.m; sourceTree = "<group>"; };
+		92E7DA2416C346C400350F18 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E7DA2516C346C400350F18 /* MessageUI.framework in Frameworks */,
 				9279C65C16BF12A50009DDFE /* CoreLocation.framework in Frameworks */,
 				92446FF616B0DBE000647ECA /* CoreMotion.framework in Frameworks */,
 				92A2137E16AE559F00FF84FD /* UIKit.framework in Frameworks */,
@@ -65,6 +68,7 @@
 		92A2136E16AE559F00FF84FD = {
 			isa = PBXGroup;
 			children = (
+				92E7DA2416C346C400350F18 /* MessageUI.framework */,
 				9279C65B16BF12A50009DDFE /* CoreLocation.framework */,
 				92446FF516B0DBE000647ECA /* CoreMotion.framework */,
 				92A2138316AE559F00FF84FD /* Road Bumps */,
