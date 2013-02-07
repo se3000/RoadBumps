@@ -47,7 +47,6 @@
                          locationManager.location.altitude];
     
     [self setCollectedData:[collectedData stringByAppendingString:newData]] ;
-    NSLog(@"%@", collectedData);
 }
 
 - (void)start {
