@@ -36,7 +36,7 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer setSubject:@"Road Bumps Data"];
+        [mailer setSubject:[recorder description]];
         [mailer setMessageBody:recorder.collectedData isHTML:NO];
         [self presentViewController:mailer animated:YES completion:nil];
     }

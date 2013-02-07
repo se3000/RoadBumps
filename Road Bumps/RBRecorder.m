@@ -4,11 +4,15 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDate *startTime, *endTime;
 
 @end
 
 @implementation RBRecorder
-@synthesize collectedData, motionManager, locationManager, status, timer, dateFormatter;
+@synthesize motionManager, locationManager,
+            collectedData, timer,
+            status, startTime, endTime,
+            dateFormatter;
 
 - (id)init {
     self = [super init];
@@ -19,7 +23,7 @@
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         
         dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS "];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
         
         [self setStatus:@"new"];
     }
@@ -28,11 +32,12 @@
 } 
 
 - (void)updateData {
+    NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
     CLLocationCoordinate2D coordinate = locationManager.location.coordinate;
     CMAcceleration acceletation = motionManager.accelerometerData.acceleration;
     
     NSString *newData = [[NSString alloc] initWithFormat:@"%@,%f,%f,%f,%f,%f,%f\n",
-                         [self currentTime],
+                         currentTime,
                          acceletation.x,
                          acceletation.y,
                          acceletation.z,
@@ -45,6 +50,7 @@
 }
 
 - (void)start {
+    startTime = [NSDate date];
     [locationManager startUpdatingLocation];
     [motionManager startAccelerometerUpdates];
     
@@ -58,16 +64,23 @@
 }
 
 - (void)stop {
-    [locationManager stopUpdatingLocation];
-    [motionManager stopAccelerometerUpdates];
-    
     [timer invalidate];
     timer = nil;
     
+    startTime = [NSDate date];
+
+    [locationManager stopUpdatingLocation];
+    [motionManager stopAccelerometerUpdates];
+
     [self setStatus:@"stopped"];
 }
 
-- (NSString *)currentTime {
-    return [dateFormatter stringFromDate:[NSDate date]];
+- (NSString *)description {
+    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+    
+    return [[NSString alloc ]initWithFormat:@"Collected between %@ and %@.",
+            [formatter stringFromDate:startTime],
+            [formatter stringFromDate:endTime]];
 }
 @end

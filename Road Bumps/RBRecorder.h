@@ -6,10 +6,10 @@
 
 - (void)start;
 - (void)stop;
+- (NSString *)description;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSString *collectedData;
-@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *collectedData, *status;
 
 @end
