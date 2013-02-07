@@ -68,7 +68,7 @@
     [timer invalidate];
     timer = nil;
     
-    startTime = [NSDate date];
+    endTime = [NSDate date];
 
     [locationManager stopUpdatingLocation];
     [motionManager stopAccelerometerUpdates];
