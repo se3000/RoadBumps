@@ -12,4 +12,6 @@
 @property (nonatomic, strong) NSString *collectedData;
 @property (nonatomic, strong) NSString *status;
 
+@property (nonatomic, strong) NSTimer *timer; //make private later
+
 @end
