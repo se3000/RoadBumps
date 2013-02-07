@@ -1,13 +1,4 @@
-//
-//  RBAppDelegate.m
-//  Road Bumps
-//
-//  Created by SE on 1/22/13.
-//  Copyright (c) 2013 SE. All rights reserved.
-//
-
 #import "RBAppDelegate.h"
-
 #import "RBViewController.h"
 
 @implementation RBAppDelegate

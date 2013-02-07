@@ -1,11 +1,8 @@
 #import <UIKit/UIKit.h>
-#import <CoreMotion/CoreMotion.h>
-#import <CoreLocation/CoreLocation.h>
+#import "RBRecorder.h"
 
-@interface RBViewController : UIViewController <CLLocationManagerDelegate>
+@interface RBViewController : UIViewController
 
-@property (nonatomic, strong) CMMotionManager *motionManager;
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSString *collectedData;
+@property (nonatomic, strong) RBRecorder *recorder;
 
 @end

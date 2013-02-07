@@ -20,7 +20,7 @@
 		92A2139416AE55A000FF84FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139316AE559F00FF84FD /* Default-568h@2x.png */; };
 		92A2139716AE55A000FF84FD /* RBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A2139616AE55A000FF84FD /* RBViewController.m */; };
 		92A2139A16AE55A000FF84FD /* RBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A2139816AE55A000FF84FD /* RBViewController.xib */; };
-		92A213A216AE574800FF84FD /* RBMotionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A213A116AE574800FF84FD /* RBMotionRecord.m */; };
+		92B8EE7316C2C41D00131924 /* RBRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B8EE7216C2C41D00131924 /* RBRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		92A2139516AE55A000FF84FD /* RBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBViewController.h; sourceTree = "<group>"; };
 		92A2139616AE55A000FF84FD /* RBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBViewController.m; sourceTree = "<group>"; };
 		92A2139916AE55A000FF84FD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RBViewController.xib; sourceTree = "<group>"; };
-		92A213A016AE574800FF84FD /* RBMotionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBMotionRecord.h; sourceTree = "<group>"; };
-		92A213A116AE574800FF84FD /* RBMotionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBMotionRecord.m; sourceTree = "<group>"; };
+		92B8EE7116C2C41D00131924 /* RBRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBRecorder.h; sourceTree = "<group>"; };
+		92B8EE7216C2C41D00131924 /* RBRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +94,12 @@
 		92A2138316AE559F00FF84FD /* Road Bumps */ = {
 			isa = PBXGroup;
 			children = (
-				92A2138C16AE559F00FF84FD /* RBAppDelegate.h */,
-				92A2138D16AE559F00FF84FD /* RBAppDelegate.m */,
+				92B8EE7116C2C41D00131924 /* RBRecorder.h */,
+				92B8EE7216C2C41D00131924 /* RBRecorder.m */,
 				92A2139516AE55A000FF84FD /* RBViewController.h */,
 				92A2139616AE55A000FF84FD /* RBViewController.m */,
-				92A213A016AE574800FF84FD /* RBMotionRecord.h */,
-				92A213A116AE574800FF84FD /* RBMotionRecord.m */,
+				92A2138C16AE559F00FF84FD /* RBAppDelegate.h */,
+				92A2138D16AE559F00FF84FD /* RBAppDelegate.m */,
 				92A2139816AE55A000FF84FD /* RBViewController.xib */,
 				92A2138416AE559F00FF84FD /* Supporting Files */,
 			);
@@ -190,7 +190,7 @@
 				92A2138A16AE559F00FF84FD /* main.m in Sources */,
 				92A2138E16AE559F00FF84FD /* RBAppDelegate.m in Sources */,
 				92A2139716AE55A000FF84FD /* RBViewController.m in Sources */,
-				92A213A216AE574800FF84FD /* RBMotionRecord.m in Sources */,
+				92B8EE7316C2C41D00131924 /* RBRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
