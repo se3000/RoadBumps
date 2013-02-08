@@ -17,12 +17,12 @@
         self.controlButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.controlButton setTitle:@"Start" forState:UIControlStateNormal];
         [self.controlButton addTarget:self action:@selector(controlPress) forControlEvents:UIControlEventTouchUpInside];
-        [self.controlButton setFrame:CGRectMake(0, 0, 100, 100)];
+        [self.controlButton setFrame:CGRectMake(20, 300, 280, 70)];
         
         self.emailButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.emailButton setTitle:@"EMail Results" forState:UIControlStateNormal];
         [self.emailButton addTarget:self action:@selector(emailData) forControlEvents:UIControlEventTouchUpInside];
-        [self.emailButton setFrame:CGRectMake(220, 0, 100, 100)];
+        [self.emailButton setFrame:CGRectMake(20, 380, 280, 70)];
         self.emailButton.enabled = NO;
 
         [self.view addSubview:self.controlButton];
