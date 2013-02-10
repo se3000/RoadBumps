@@ -1,8 +1,8 @@
 #import "RBViewController.h"
 
 @interface RBViewController()
-    @property (nonatomic, strong) UIButton *controlButton;
-    @property (nonatomic, strong) UIButton *emailButton;
+    @property (nonatomic, strong) RBButton *controlButton;
+    @property (nonatomic, strong) RBButton *emailButton;
 @end
 
 @implementation RBViewController
@@ -14,16 +14,19 @@
     self = [super initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil];
     if (self) {
         recorder = [[RBRecorder alloc] init];
-        self.controlButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.controlButton setTitle:@"Start" forState:UIControlStateNormal];
-        [self.controlButton addTarget:self action:@selector(controlPress) forControlEvents:UIControlEventTouchUpInside];
-        [self.controlButton setFrame:CGRectMake(20, 300, 280, 70)];
+        self.controlButton = [RBButton withFrame:CGRectMake(20, 300, 280, 70)
+                                        andTitle:@"Start new log"];
+        [self.controlButton addTarget:self 
+                               action:@selector(controlPress)
+                     forControlEvents:UIControlEventTouchUpInside];
         
-        self.emailButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.emailButton setTitle:@"EMail Results" forState:UIControlStateNormal];
-        [self.emailButton addTarget:self action:@selector(emailData) forControlEvents:UIControlEventTouchUpInside];
-        [self.emailButton setFrame:CGRectMake(20, 380, 280, 70)];
+        self.emailButton = [RBButton withFrame:CGRectMake(20, 380, 280, 70)
+                                      andTitle:@"Export as email"];
+        [self.emailButton addTarget:self 
+                             action:@selector(emailData) 
+                   forControlEvents:UIControlEventTouchUpInside];
         self.emailButton.enabled = NO;
+
 
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
@@ -51,11 +54,13 @@
     {
         self.emailButton.enabled = YES;
         [recorder stop];
-        [self.controlButton setTitle:@"Start Over" forState:UIControlStateNormal];
+        [self.controlButton setTitle:@"Reset and start new log"
+                            forState:UIControlStateNormal];
     } else if ([recorder.status isEqualToString:@"stopped"] || [recorder.status isEqualToString:@"new"]) {
         self.emailButton.enabled = NO;
         [recorder start];
-        [self.controlButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.controlButton setTitle:@"Stop logging"
+                            forState:UIControlStateNormal];
     }
 }
 
@@ -64,4 +69,5 @@
                         error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end
