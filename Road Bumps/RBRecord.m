@@ -1,6 +1,6 @@
-#import "RBRecorder.h"
+#import "RBRecord.h"
 
-@interface RBRecorder()
+@interface RBRecord()
 
 @property (nonatomic, strong) NSMutableArray *dataPoints;
 @property (nonatomic, strong) NSTimer *timer;
@@ -8,7 +8,7 @@
 
 @end
 
-@implementation RBRecorder
+@implementation RBRecord
 @synthesize dataPoints, motionManager, locationManager, timer, status, startTime, endTime;
 
 - (id)init {

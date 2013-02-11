@@ -3,7 +3,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RBDataPoint.h"
 
-@interface RBRecorder : NSObject  <CLLocationManagerDelegate>
+@interface RBRecord : NSObject  <CLLocationManagerDelegate>
 
 - (void)start;
 - (void)stop;

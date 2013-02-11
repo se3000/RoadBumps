@@ -13,7 +13,7 @@
                bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil];
     if (self) {
-        recorder = [[RBRecorder alloc] init];
+        recorder = [[RBRecord alloc] init];
         self.controlButton = [RBButton withFrame:CGRectMake(20, 300, 280, 70)
                                         andTitle:@"Start new log"];
         [self.controlButton addTarget:self 
