@@ -7,45 +7,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Road Bumps/RBRecorder.m"
-         timestampString = "381902204.727322"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
-         landmarkName = "-start"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Road Bumps/RBRecorder.m"
-         timestampString = "381902204.727322"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-start"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Road Bumps/RBRecorder.m"
-         timestampString = "381902204.727322"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-start"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Road Bumps/RBButton.m"
          timestampString = "382146437.435424"
          startingColumnNumber = "9223372036854775807"
@@ -53,6 +14,19 @@
          startingLineNumber = "6"
          endingLineNumber = "6"
          landmarkName = "+withFrame:andTitle:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Road Bumps/RBDataPoint.m"
+         timestampString = "382246404.124761"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "7"
+         endingLineNumber = "7"
+         landmarkName = "-initWithLocation:andAcceleration:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

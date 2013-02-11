@@ -41,7 +41,7 @@
         mailer.mailComposeDelegate = self;
         [mailer setSubject:@"Road Bumps Data"];
         [mailer setMessageBody:[recorder description] isHTML:NO];
-        [mailer addAttachmentData:[recorder resultData] 
+        [mailer addAttachmentData:[recorder toCSV]
                          mimeType:@"text/csv"
                          fileName:[recorder filename]];
         [self presentViewController:mailer animated:YES completion:nil];

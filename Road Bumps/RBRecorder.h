@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
+#import "RBDataPoint.h"
 
 @interface RBRecorder : NSObject  <CLLocationManagerDelegate>
 
@@ -8,7 +9,7 @@
 - (void)stop;
 - (NSString *)description;
 - (NSString *)filename;
-- (NSData *)resultData;
+- (NSData *)toCSV;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;

@@ -2,29 +2,22 @@
 
 @interface RBRecorder()
 
-@property (nonatomic, strong) NSString *collectedData;
+@property (nonatomic, strong) NSMutableArray *dataPoints;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSDate *startTime, *endTime;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
 @implementation RBRecorder
-@synthesize motionManager, locationManager,
-            collectedData, timer,
-            status, startTime, endTime,
-            dateFormatter;
+@synthesize dataPoints, motionManager, locationManager, timer, status, startTime, endTime;
 
 - (id)init {
     self = [super init];
     if (self) {
-        collectedData = @"Time,Acceleration X,Acceleration Y,Acceleration Z,Latitude,Longitude,Altitude\n";
         motionManager = [[CMMotionManager alloc] init];
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        
-        dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
+        dataPoints = [[NSMutableArray alloc] init];
         
         [self setStatus:@"new"];
     }
@@ -33,20 +26,9 @@
 } 
 
 - (void)updateData {
-    NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-    CLLocationCoordinate2D coordinate = locationManager.location.coordinate;
-    CMAcceleration acceletation = motionManager.accelerometerData.acceleration;
-    
-    NSString *newData = [[NSString alloc] initWithFormat:@"%@,%f,%f,%f,%f,%f,%f\n",
-                         currentTime,
-                         acceletation.x,
-                         acceletation.y,
-                         acceletation.z,
-                         coordinate.latitude,
-                         coordinate.longitude,
-                         locationManager.location.altitude];
-    
-    [self setCollectedData:[collectedData stringByAppendingString:newData]] ;
+    RBDataPoint *dataPoint = [[RBDataPoint alloc] initWithLocation:locationManager.location 
+                                                   andAcceleration:motionManager.accelerometerData.acceleration];
+    [self.dataPoints addObject: dataPoint];
 }
 
 - (void)start {
@@ -92,7 +74,11 @@
             [formatter stringFromDate:startTime]];
 }
 
-- (NSData *)resultData {
-    return [collectedData dataUsingEncoding:NSUTF8StringEncoding] ;
+- (NSData *)toCSV {
+    NSMutableString *results = [NSMutableString stringWithString:@"Time,Acceleration X,Acceleration Y,Acceleration Z,Latitude,Longitude,Altitude"];
+    for (RBDataPoint *dataPoint in dataPoints) {
+        [results appendFormat:@"\n%@", dataPoint];
+    }
+    return [results dataUsingEncoding:NSUTF8StringEncoding];
 }
 @end
