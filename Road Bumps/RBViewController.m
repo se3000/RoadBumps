@@ -1,19 +1,22 @@
 #import "RBViewController.h"
+#import "RBRecordDelegate.h"
+#import "RBDataPoint.h"
 
-@interface RBViewController()
-    @property (nonatomic, strong) RBButton *controlButton;
-    @property (nonatomic, strong) RBButton *emailButton;
+@interface RBViewController() <RBRecordDelegate>
+    @property (nonatomic, strong) RBButton *controlButton, *emailButton;
+    @property (nonatomic, strong) UILabel *longitude, *latitude, *altitude,
+                                          *accelerationX, *accelerationY, *accelerationZ;
+    @property (nonatomic, strong) RBRecord *record;
 @end
 
 @implementation RBViewController
-@synthesize recorder;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil 
                bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil];
     if (self) {
-        recorder = [[RBRecord alloc] init];
+        self.record = [[RBRecord alloc] init];
+        self.record.delegate = self;
         self.controlButton = [RBButton withFrame:CGRectMake(20, 300, 280, 70)
                                         andTitle:@"Start new log"];
         [self.controlButton addTarget:self 
@@ -27,9 +30,14 @@
                    forControlEvents:UIControlEventTouchUpInside];
         self.emailButton.enabled = NO;
 
-
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
+        [self.view addSubview:self.latitude];
+        [self.view addSubview:self.longitude];
+        [self.view addSubview:self.altitude];
+        [self.view addSubview:self.accelerationX];
+        [self.view addSubview:self.accelerationY];
+        [self.view addSubview:self.accelerationZ];
     }
 
     return self;
@@ -40,34 +48,100 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         [mailer setSubject:@"Road Bumps Data"];
-        [mailer setMessageBody:[recorder description] isHTML:NO];
-        [mailer addAttachmentData:[recorder toCSV]
+        [mailer setMessageBody:[self.record description] isHTML:NO];
+        [mailer addAttachmentData:[self.record toCSV]
                          mimeType:@"text/csv"
-                         fileName:[recorder filename]];
+                         fileName:[self.record filename]];
         [self presentViewController:mailer animated:YES completion:nil];
     }
 }
 
-
 - (void)controlPress {
-    if ([recorder.status isEqualToString:@"recording"])
+    if ([self.record.status isEqualToString:@"recording"])
     {
         self.emailButton.enabled = YES;
-        [recorder stop];
+        [self.record stop];
         [self.controlButton setTitle:@"Reset and start new log"
                             forState:UIControlStateNormal];
-    } else if ([recorder.status isEqualToString:@"stopped"] || [recorder.status isEqualToString:@"new"]) {
+    } else if ([self.record.status isEqualToString:@"stopped"] || [self.record.status isEqualToString:@"new"]) {
         self.emailButton.enabled = NO;
-        [recorder start];
+        [self.record start];
         [self.controlButton setTitle:@"Stop logging"
                             forState:UIControlStateNormal];
     }
 }
 
+- (UILabel *)latitude {
+    if (!_latitude) {
+        _latitude = [self labelWithText:@"Latitude:" startingAtPoint:CGPointMake(10, 0)];
+
+    }
+    return _latitude;
+}
+
+- (UILabel *)longitude {
+    if (!_longitude) {
+        _longitude = [self labelWithText:@"Longitude:" startingAtPoint:CGPointMake(10, 20)];
+    }
+    return _longitude;
+}
+
+- (UILabel *)altitude {
+    if (!_altitude) {
+        _altitude = [self labelWithText:@"Altitude:" startingAtPoint:CGPointMake(10, 40)];
+    }
+    return _altitude;
+}
+
+- (UILabel *)accelerationX {
+    if (!_accelerationX) {
+        _accelerationX = [self labelWithText:@"Acceleration X:" startingAtPoint:CGPointMake(160, 0)];
+    }
+    return _accelerationX;
+}
+
+- (UILabel *)accelerationY {
+    if (!_accelerationY) {
+        _accelerationY = [self labelWithText:@"Acceleration Y:" startingAtPoint:CGPointMake(160, 20)];
+    }
+    return _accelerationY;
+}
+
+- (UILabel *)accelerationZ {
+    if (!_accelerationZ) {
+        _accelerationZ = [self labelWithText:@"Acceleration Z:" startingAtPoint:CGPointMake(160, 40)];
+    }
+    return _accelerationZ;
+}
+
+#pragma mark MFMailComposeViewControllerDelegate
+
 - (void)mailComposeController:(MFMailComposeViewController *)controller 
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark RBRecordDelegate
+
+- (void)recordUpdatedDataPoint:(RBDataPoint *)dataPoint {
+    self.latitude.text = [NSString stringWithFormat:@"Latitude:     %f", dataPoint.coordinate.latitude];
+    self.longitude.text = [NSString stringWithFormat:@"Longitude: %f", dataPoint.coordinate.longitude];
+    self.altitude.text = [NSString stringWithFormat:@"Altitude:      %f", dataPoint.altitude];
+    self.accelerationX.text = [NSString stringWithFormat:@"Acceleration X:  %f", dataPoint.acceleration.x];
+    self.accelerationY.text = [NSString stringWithFormat:@"Acceleration Y:  %f", dataPoint.acceleration.y];
+    self.accelerationZ.text = [NSString stringWithFormat:@"Acceleration Z:  %f", dataPoint.acceleration.z];
+}
+
+#pragma mark private
+
+- (UILabel *)labelWithText:(NSString *)text startingAtPoint:(CGPoint)point {
+    UIFont *font = [UIFont systemFontOfSize:12];
+    UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){point, [@"Acceleration x: 0.00000000" sizeWithFont: font]}];
+    [label setFont:font];
+    label.text = text;
+    
+    return label;
 }
 
 @end

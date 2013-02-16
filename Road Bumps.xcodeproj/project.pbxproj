@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		921A40F416C9F28400BDE672 /* RBRecordDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBRecordDelegate.h; sourceTree = "<group>"; };
 		92446FF516B0DBE000647ECA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		925B356116C7153D00548510 /* RBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBButton.h; sourceTree = "<group>"; };
 		925B356216C7153D00548510 /* RBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBButton.m; sourceTree = "<group>"; };
@@ -71,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921A40F516C9F39B00BDE672 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				921A40F416C9F28400BDE672 /* RBRecordDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		925B356716C71E9B00548510 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +96,7 @@
 		925B356816C71EB400548510 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92A2139816AE55A000FF84FD /* RBViewController.xib */,
 				925B356116C7153D00548510 /* RBButton.h */,
 				925B356216C7153D00548510 /* RBButton.m */,
 			);
@@ -96,9 +106,8 @@
 		925B356916C71EE100548510 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92A2139516AE55A000FF84FD /* RBViewController.h */,
 				92A2139616AE55A000FF84FD /* RBViewController.m */,
-				92A2139816AE55A000FF84FD /* RBViewController.xib */,
+				92A2139516AE55A000FF84FD /* RBViewController.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 		92A2138316AE559F00FF84FD /* Road Bumps */ = {
 			isa = PBXGroup;
 			children = (
+				921A40F516C9F39B00BDE672 /* Protocols */,
 				925B356916C71EE100548510 /* Controllers */,
 				925B356816C71EB400548510 /* Views */,
 				925B356716C71E9B00548510 /* Models */,

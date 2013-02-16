@@ -3,21 +3,22 @@
 @interface RBRecord()
 
 @property (nonatomic, strong) NSMutableArray *dataPoints;
+@property (nonatomic, strong) CMMotionManager *motionManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSDate *startTime, *endTime;
 
 @end
 
 @implementation RBRecord
-@synthesize dataPoints, motionManager, locationManager, timer, status, startTime, endTime;
 
 - (id)init {
     self = [super init];
     if (self) {
-        motionManager = [[CMMotionManager alloc] init];
-        locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        dataPoints = [[NSMutableArray alloc] init];
+        self.motionManager = [[CMMotionManager alloc] init];
+        self.locationManager = [[CLLocationManager alloc] init];
+        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        self.dataPoints = [[NSMutableArray alloc] init];
         
         [self setStatus:@"new"];
     }
@@ -26,33 +27,34 @@
 } 
 
 - (void)updateData {
-    RBDataPoint *dataPoint = [[RBDataPoint alloc] initWithLocation:locationManager.location 
-                                                   andAcceleration:motionManager.accelerometerData.acceleration];
+    RBDataPoint *dataPoint = [[RBDataPoint alloc] initWithLocation:self.locationManager.location
+                                                   andAcceleration:self.motionManager.accelerometerData.acceleration];
     [self.dataPoints addObject: dataPoint];
+    [self.delegate recordUpdatedDataPoint:dataPoint];
 }
 
 - (void)start {
-    startTime = [NSDate date];
-    [locationManager startUpdatingLocation];
-    [motionManager startAccelerometerUpdates];
+    self.startTime = [NSDate date];
+    [self.locationManager startUpdatingLocation];
+    [self.motionManager startAccelerometerUpdates];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.25
-                                             target:self
-                                           selector:@selector(updateData)
-                                           userInfo:nil
-                                            repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.25
+                                                  target:self
+                                                selector:@selector(updateData)
+                                                userInfo:nil
+                                                 repeats:YES];
     
     [self setStatus:@"recording"];
 }
 
 - (void)stop {
-    [timer invalidate];
-    timer = nil;
+    [self.timer invalidate];
+    self.timer = nil;
     
-    endTime = [NSDate date];
+    self.endTime = [NSDate date];
 
-    [locationManager stopUpdatingLocation];
-    [motionManager stopAccelerometerUpdates];
+    [self.locationManager stopUpdatingLocation];
+    [self.motionManager stopAccelerometerUpdates];
 
     [self setStatus:@"stopped"];
 }
@@ -62,8 +64,8 @@
     [formatter setDateFormat:@"yyyy-MM-dd hh:mm"];
     
     return [[NSString alloc ]initWithFormat:@"Collected between %@ and %@.",
-                                            [formatter stringFromDate:startTime],
-                                            [formatter stringFromDate:endTime]];
+                                            [formatter stringFromDate:self.startTime],
+                                            [formatter stringFromDate:self.endTime]];
 }
 
 - (NSString *)filename {
@@ -71,12 +73,12 @@
     [formatter setDateFormat:@"yyyyMMdd_hh_mm"];
     
     return [[NSString alloc ]initWithFormat:@"RoadBumps_%@.csv",
-            [formatter stringFromDate:startTime]];
+            [formatter stringFromDate:self.startTime]];
 }
 
 - (NSData *)toCSV {
     NSMutableString *results = [NSMutableString stringWithString:@"Time,Acceleration X,Acceleration Y,Acceleration Z,Latitude,Longitude,Altitude"];
-    for (RBDataPoint *dataPoint in dataPoints) {
+    for (RBDataPoint *dataPoint in self.dataPoints) {
         [results appendFormat:@"\n%@", dataPoint];
     }
     return [results dataUsingEncoding:NSUTF8StringEncoding];
