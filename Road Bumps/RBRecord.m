@@ -44,6 +44,7 @@
                                                 userInfo:nil
                                                  repeats:YES];
     self.recording = YES;
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
 - (void)stop {
@@ -56,6 +57,7 @@
     [self.motionManager stopAccelerometerUpdates];
 
     self.recording = NO;
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (NSString *)description {
