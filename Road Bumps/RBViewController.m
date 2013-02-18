@@ -32,6 +32,7 @@
         self.emailButton.enabled = NO;
         self.lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(140, 260, 40, 20)];
         [self.lockSwitch addTarget:self action:@selector(lockSwitchUpdated) forControlEvents:UIControlEventValueChanged];
+        self.lockSwitch.enabled = NO;
 
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
@@ -65,10 +66,12 @@
     if (self.record.recording)
     {
         [self.record stop];
+        self.lockSwitch.enabled = NO;
         [self.controlButton setTitle:@"Reset and start new log"
                             forState:UIControlStateNormal];
     } else {
         [self.record start];
+        self.lockSwitch.enabled = YES;
         [self.controlButton setTitle:@"Stop logging"
                             forState:UIControlStateNormal];
     }
@@ -158,7 +161,7 @@
 }
 
 - (void)updateEmailButton {
-    if (self.record.recording || self.lockSwitch.on) {
+    if (self.record.recording) {
         self.emailButton.enabled = false;
     } else {
         self.emailButton.enabled = true;
