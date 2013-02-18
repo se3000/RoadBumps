@@ -18,25 +18,7 @@
     if (self) {
         self.record = [[RBRecord alloc] init];
         self.record.delegate = self;
-        self.controlButton = [RBButton withFrame:CGRectMake(20, 310, 280, 60)
-                                        andTitle:@"Start new log"];
-        [self.controlButton addTarget:self 
-                               action:@selector(controlPress)
-                     forControlEvents:UIControlEventTouchUpInside];
         
-        self.emailButton = [RBButton withFrame:CGRectMake(20, 380, 280, 60)
-                                      andTitle:@"Export as email"];
-        [self.emailButton addTarget:self 
-                             action:@selector(emailData) 
-                   forControlEvents:UIControlEventTouchUpInside];
-        self.emailButton.enabled = NO;
-        self.lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(120, 270, 40, 20)];
-        [self.lockSwitch addTarget:self action:@selector(lockSwitchUpdated) forControlEvents:UIControlEventValueChanged];
-        [self.lockSwitch setTintColor:[UIColor blackColor]];
-        [self.lockSwitch setOnTintColor:[UIColor redColor]];
-        self.lockSwitch.transform = CGAffineTransformMakeScale(1.25, 1.25);
-        self.lockSwitch.enabled = NO;
-
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
         [self.view addSubview:self.lockSwitch];
@@ -89,6 +71,41 @@
         self.controlButton.enabled = true;
     }
     [self updateEmailButton];
+}
+
+- (RBButton *)controlButton {
+    if (!_controlButton) {
+        _controlButton = [RBButton withFrame:CGRectMake(20, 310, 280, 60)
+                                    andTitle:@"Start new log"];
+        [_controlButton addTarget:self
+                           action:@selector(controlPress)
+                 forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _controlButton;
+}
+
+- (RBButton *)emailButton {
+    if (!_emailButton) {
+        _emailButton = [RBButton withFrame:CGRectMake(20, 380, 280, 60)
+                                  andTitle:@"Export as email"];
+        [_emailButton addTarget:self
+                         action:@selector(emailData)
+               forControlEvents:UIControlEventTouchUpInside];
+        _emailButton.enabled = NO;
+    }
+    return _emailButton;
+}
+
+- (UISwitch *)lockSwitch {
+    if (!_lockSwitch) {
+        _lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(120, 270, 40, 20)];
+        [_lockSwitch addTarget:self action:@selector(lockSwitchUpdated) forControlEvents:UIControlEventValueChanged];
+        [_lockSwitch setTintColor:[UIColor blackColor]];
+        [_lockSwitch setOnTintColor:[UIColor redColor]];
+        _lockSwitch.transform = CGAffineTransformMakeScale(1.25, 1.25);
+        _lockSwitch.enabled = NO;
+    }
+    return _lockSwitch;
 }
 
 - (UILabel *)latitude {
