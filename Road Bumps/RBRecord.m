@@ -20,7 +20,7 @@
         [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         self.dataPoints = [[NSMutableArray alloc] init];
         
-        [self setStatus:@"new"];
+        self.recording = NO;
     }
     
     return self;
@@ -43,8 +43,7 @@
                                                 selector:@selector(updateData)
                                                 userInfo:nil
                                                  repeats:YES];
-    
-    [self setStatus:@"recording"];
+    self.recording = YES;
 }
 
 - (void)stop {
@@ -56,15 +55,7 @@
     [self.locationManager stopUpdatingLocation];
     [self.motionManager stopAccelerometerUpdates];
 
-    [self setStatus:@"stopped"];
-}
-
-- (BOOL)recording {
-    BOOL recording = NO;
-    if ([self.status isEqualToString:@"recording"]) {
-        recording = YES;
-    }
-    return recording;
+    self.recording = NO;
 }
 
 - (NSString *)description {

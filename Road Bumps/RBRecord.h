@@ -8,12 +8,11 @@
 
 - (void)start;
 - (void)stop;
-- (BOOL)recording;
 - (NSString *)description;
 - (NSString *)filename;
 - (NSData *)toCSV;
 
-@property (nonatomic, strong) NSString *status;
+@property (readwrite) BOOL recording;
 @property (nonatomic, weak) NSObject <RBRecordDelegate> *delegate;
 
 @end

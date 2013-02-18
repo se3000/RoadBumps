@@ -62,7 +62,7 @@
 }
 
 - (void)controlPress {
-    if ([self.record recording])
+    if (self.record.recording)
     {
         [self.record stop];
         [self.controlButton setTitle:@"Reset and start new log"
@@ -158,7 +158,7 @@
 }
 
 - (void)updateEmailButton {
-    if ([self.record recording] || self.lockSwitch.on) {
+    if (self.record.recording || self.lockSwitch.on) {
         self.emailButton.enabled = false;
     } else {
         self.emailButton.enabled = true;
