@@ -4,6 +4,7 @@
 
 @interface RBViewController() <RBRecordDelegate>
     @property (nonatomic, strong) RBButton *controlButton, *emailButton;
+    @property (nonatomic, strong) UISwitch *lockSwitch;
     @property (nonatomic, strong) UILabel *longitude, *latitude, *altitude,
                                           *accelerationX, *accelerationY, *accelerationZ;
     @property (nonatomic, strong) RBRecord *record;
@@ -29,9 +30,13 @@
                              action:@selector(emailData) 
                    forControlEvents:UIControlEventTouchUpInside];
         self.emailButton.enabled = NO;
+        self.lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(140, 260, 40, 20)];
+        [self.lockSwitch addTarget:self action:@selector(lockSwitchUpdated) forControlEvents:UIControlEventValueChanged];
 
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
+        [self.view addSubview:self.lockSwitch];
+        
         [self.view addSubview:self.latitude];
         [self.view addSubview:self.longitude];
         [self.view addSubview:self.altitude];
@@ -57,18 +62,26 @@
 }
 
 - (void)controlPress {
-    if ([self.record.status isEqualToString:@"recording"])
+    if ([self.record recording])
     {
-        self.emailButton.enabled = YES;
         [self.record stop];
         [self.controlButton setTitle:@"Reset and start new log"
                             forState:UIControlStateNormal];
-    } else if ([self.record.status isEqualToString:@"stopped"] || [self.record.status isEqualToString:@"new"]) {
-        self.emailButton.enabled = NO;
+    } else {
         [self.record start];
         [self.controlButton setTitle:@"Stop logging"
                             forState:UIControlStateNormal];
     }
+    [self updateEmailButton];
+}
+
+- (void)lockSwitchUpdated {
+    if (self.lockSwitch.on) {
+        self.controlButton.enabled = false;
+    } else {
+        self.controlButton.enabled = true;
+    }
+    [self updateEmailButton];
 }
 
 - (UILabel *)latitude {
@@ -137,11 +150,19 @@
 
 - (UILabel *)labelWithText:(NSString *)text startingAtPoint:(CGPoint)point {
     UIFont *font = [UIFont systemFontOfSize:12];
-    UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){point, [@"Acceleration x: 0.00000000" sizeWithFont: font]}];
+    UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){point, [@"Acceleration X: 0.00000000" sizeWithFont: font]}];
     [label setFont:font];
     label.text = text;
     
     return label;
+}
+
+- (void)updateEmailButton {
+    if ([self.record recording] || self.lockSwitch.on) {
+        self.emailButton.enabled = false;
+    } else {
+        self.emailButton.enabled = true;
+    }
 }
 
 @end

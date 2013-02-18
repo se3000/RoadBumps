@@ -59,6 +59,14 @@
     [self setStatus:@"stopped"];
 }
 
+- (BOOL)recording {
+    BOOL recording = NO;
+    if ([self.status isEqualToString:@"recording"]) {
+        recording = YES;
+    }
+    return recording;
+}
+
 - (NSString *)description {
     NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd hh:mm"];

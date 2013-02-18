@@ -8,6 +8,7 @@
 
 - (void)start;
 - (void)stop;
+- (BOOL)recording;
 - (NSString *)description;
 - (NSString *)filename;
 - (NSData *)toCSV;
