@@ -18,26 +18,30 @@
     if (self) {
         self.record = [[RBRecord alloc] init];
         self.record.delegate = self;
-        self.controlButton = [RBButton withFrame:CGRectMake(20, 300, 280, 70)
+        self.controlButton = [RBButton withFrame:CGRectMake(20, 310, 280, 60)
                                         andTitle:@"Start new log"];
         [self.controlButton addTarget:self 
                                action:@selector(controlPress)
                      forControlEvents:UIControlEventTouchUpInside];
         
-        self.emailButton = [RBButton withFrame:CGRectMake(20, 380, 280, 70)
+        self.emailButton = [RBButton withFrame:CGRectMake(20, 380, 280, 60)
                                       andTitle:@"Export as email"];
         [self.emailButton addTarget:self 
                              action:@selector(emailData) 
                    forControlEvents:UIControlEventTouchUpInside];
         self.emailButton.enabled = NO;
-        self.lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(140, 260, 40, 20)];
+        self.lockSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(120, 270, 40, 20)];
         [self.lockSwitch addTarget:self action:@selector(lockSwitchUpdated) forControlEvents:UIControlEventValueChanged];
+        [self.lockSwitch setTintColor:[UIColor blackColor]];
+        [self.lockSwitch setOnTintColor:[UIColor redColor]];
+        self.lockSwitch.transform = CGAffineTransformMakeScale(1.25, 1.25);
         self.lockSwitch.enabled = NO;
 
         [self.view addSubview:self.controlButton];
         [self.view addSubview:self.emailButton];
         [self.view addSubview:self.lockSwitch];
         
+        [self.view addSubview:[self labelWithText:@"Lock Screen" startingAtPoint:CGPointMake(125, 250)]];
         [self.view addSubview:self.latitude];
         [self.view addSubview:self.longitude];
         [self.view addSubview:self.altitude];
